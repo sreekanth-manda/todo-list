@@ -4,7 +4,6 @@ import ToDoListItem from '../ToDoListItem/ToDoListItem';
 const ToDoList = (props) => {
   return (
     <div>
-      {console.log(props.todos)}
       <ToDoListItem todoItems={props.todos} />
     </div>
   );
