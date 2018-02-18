@@ -6,8 +6,20 @@ class App extends Component {
   render () {
     return (
       <div className="container">
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="#">Organizer</a>
+            </div>
+            <ul className="nav navbar-nav">
+              <li className="active"><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+          </div>
+        </nav>
         <div className="jumbotron">
-          <span className="h2 text-center">To-Do List</span>
           <ToDoList todos={this.props.todos} />
         </div>
       </div>
