@@ -5,9 +5,13 @@ import PropTypes from 'prop-types';
 class App extends Component {
   render () {
     return (
-      <div>
-        <ToDoList todos={this.props.todos} />
-      </div>);
+      <div className="container">
+        <div className="jumbotron">
+          <span className="h2 text-center">To-Do List</span>
+          <ToDoList todos={this.props.todos} />
+        </div>
+      </div>
+    );
   }
 }
 
