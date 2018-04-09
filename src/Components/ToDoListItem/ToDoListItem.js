@@ -6,15 +6,14 @@ const ToDoListItem = (props) => {
     <tr>
       <td><label><input type="checkbox" value="notDone" /></label></td>
       <td>{props.todoItem.id}</td>
-      <td>{props.todoItem.taskName}</td>
-      <td>{props.todoItem.status ? 'Done' : 'Pending'}</td>
+      <td>{props.todoItem.title}</td>
+      <td>{props.todoItem.done ? 'Done' : 'Pending'}</td>
     </tr>
   );
 };
 
 ToDoListItem.propTypes = {
-  id: PropTypes.number.isRequired,
-  taskName: PropTypes.string.isRequired
+  todoItem: PropTypes.object.isRequired
 };
 
 export default ToDoListItem;

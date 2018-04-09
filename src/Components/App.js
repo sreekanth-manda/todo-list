@@ -3,6 +3,55 @@ import ToDoList from './ToDoList/ToDoList';
 import PropTypes from 'prop-types';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todos: []
+    };
+  }
+
+  componentWillMount() {
+    this.getTodoList();
+  }
+
+  getTodoListFromServer = () => {
+    return new Promise((resolve, reject) => {
+      let req = new XMLHttpRequest();
+      req.open('GET', 'http://127.0.0.1:5000/organizer/tasks');
+
+      req.onload = () => {
+        if (req.status === 200) {
+          resolve(req.response);
+        } else {
+          reject(Error(req.statusText));
+        }
+      };
+
+      // Handle network errors
+      req.onerror = function() {
+          reject(Error('Network Error'));
+      };
+
+      // Make the request
+      req.send();
+    });
+  }
+
+  getTodoList = () => {
+    //let res = new Promise()
+    this.getTodoListFromServer().then(response => {
+      return JSON.parse(response);
+    })
+    .then(data => {
+      this.setState({todos: data.tasks});
+    })
+    .catch(err => {
+      console.log('Error occured', err);
+    });
+  }
+
   render () {
     return (
       <div className="container">
@@ -20,7 +69,7 @@ class App extends Component {
           </div>
         </nav>
         <div className="jumbotron">
-          <ToDoList todos={this.props.todos} />
+          <ToDoList todos={this.state.todos} />
         </div>
       </div>
     );
