@@ -61,7 +61,7 @@
     "nock": "8.0.0",
     "node-sass": "^4.7.2",
     "npm-run-all": "1.8.0",
-    "open": "0.0.5",
+    "open": "7.0.3",
     "prop-types": "^15.6.0",
     "react-addons-test-utils": "15.0.2",
     "redux-immutable-state-invariant": "1.2.3",
